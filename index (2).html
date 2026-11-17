@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Uniqm helpt publieke en private organisaties met projectleiding, advies, stakeholdermanagement en verandering." />
+  <meta name="theme-color" content="#f4f0e8" />
+  <title>Uniqm — Projectleiding & Advies</title>
+  <style>
+    :root{
+      --paper:#f4f0e8;
+      --paper-2:#ebe6dc;
+      --ink:#141414;
+      --muted:#66635d;
+      --dark:#111111;
+      --dark-2:#1b1b1b;
+      --line:rgba(20,20,20,.13);
+      --orange:#ff6a00;
+      --orange-soft:#ff9d58;
+      --white:#fffdf8;
+      --radius:24px;
+      --shadow:0 24px 70px rgba(0,0,0,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(244,240,232,.86);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:.25s}
+    .nav.scrolled{border-bottom-color:var(--line)}
+    .nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;font-size:24px;font-weight:850;letter-spacing:-.04em}
+    .brand-dot{width:12px;height:12px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(255,106,0,.12)}
+    .nav-links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:650}
+    .nav-links a{opacity:.68;transition:.2s}.nav-links a:hover{opacity:1}
+    .nav-cta{padding:11px 17px;background:var(--dark);color:white;border-radius:999px;opacity:1!important}
+    .hero{padding:88px 0 68px}
+    .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:56px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .eyebrow:before{content:"";width:28px;height:2px;background:var(--orange)}
+    h1{font-size:clamp(54px,7vw,96px);line-height:.93;letter-spacing:-.065em;margin:20px 0 24px;font-weight:900;max-width:780px}
+    .orange{color:var(--orange)}
+    .lead{font-size:clamp(18px,2vw,23px);line-height:1.45;color:#3e3c38;max-width:690px;margin:0 0 32px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 20px;border-radius:999px;border:1px solid var(--line);font-weight:760;font-size:15px;transition:.2s}
+    .btn-primary{background:var(--orange);border-color:var(--orange);color:#111}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(255,106,0,.23)}
+    .btn-secondary:hover{background:#fff7ed;border-color:rgba(255,106,0,.45)}
+    .trust-line{display:flex;align-items:center;gap:12px;margin-top:30px;color:var(--muted);font-size:14px}
+    .avatar{width:46px;height:46px;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,#1c1c1c,#393939);border:2px solid var(--paper)}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .avatar-fallback{width:100%;height:100%;display:grid;place-items:center;color:#fff;font-weight:850;font-size:13px}
+    .profile-card{background:var(--dark);color:white;border-radius:30px;padding:34px;box-shadow:var(--shadow);min-height:470px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+    .profile-card:after{content:"";position:absolute;right:-80px;bottom:-100px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,0,.20),transparent 68%);pointer-events:none}
+    .profile-top{position:relative;z-index:2}
+    .profile-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--orange);font-weight:850;margin-bottom:18px}
+    .profile-name{font-size:38px;line-height:1;letter-spacing:-.045em;font-weight:900;margin:0 0 10px}
+    .profile-role{font-size:18px;color:#c9c9c9;margin:0 0 30px}
+    .profile-rule{height:1px;background:rgba(255,255,255,.10);margin:0 0 28px}
+    .profile-list{display:grid;gap:0;position:relative;z-index:2}
+    .profile-item{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;padding:15px 0;border-top:1px solid rgba(255,255,255,.08)}
+    .profile-item:first-child{border-top:0;padding-top:0}
+    .profile-num{color:var(--orange);font-size:12px;font-weight:850;padding-top:3px}
+    .profile-item b{display:block;font-size:16px;margin-bottom:3px}
+    .profile-item span{display:block;color:#969696;font-size:13px;line-height:1.45}
+    .profile-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.10);position:relative;z-index:2}
+    .profile-location{font-size:13px;color:#a9a9a9}
+    .profile-status{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:#cfcfcf;white-space:nowrap}
+    .profile-status i{width:8px;height:8px;border-radius:50%;background:var(--orange);display:block}
+    section{padding:94px 0;border-top:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start;margin-bottom:52px}
+    .section-label{font-size:13px;text-transform:uppercase;letter-spacing:.12em;font-weight:850;color:var(--muted)}
+    h2{font-size:clamp(38px,5vw,66px);line-height:1;letter-spacing:-.055em;margin:0;font-weight:900}
+    .section-intro{font-size:20px;color:#4d4a45;margin:16px 0 0;max-width:720px}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service{padding:28px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.28);min-height:280px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
+    .service:hover{transform:translateY(-5px);background:var(--white);box-shadow:0 18px 46px rgba(0,0,0,.07)}
+    .service-num{font-size:12px;font-weight:850;color:var(--orange);letter-spacing:.08em}.service h3{font-size:25px;letter-spacing:-.035em;margin:28px 0 10px}.service p{color:var(--muted);margin:0}.service .arrow{font-size:26px;margin-top:24px}
+    .work-section{background:var(--paper-2)}
+    .cases{display:grid;gap:16px}
+    .case{display:grid;grid-template-columns:220px 1fr auto;gap:28px;align-items:center;padding:26px 28px;background:var(--paper);border-radius:22px;border:1px solid var(--line);transition:.2s}.case:hover{transform:translateX(5px)}
+    .case small{color:var(--muted);font-weight:750}.case h3{margin:4px 0 0;font-size:24px;letter-spacing:-.035em}.case p{margin:0;color:#57544f}.tag{padding:8px 12px;border-radius:999px;background:#191919;color:white;font-size:12px;font-weight:750;white-space:nowrap}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+    .quote-card{background:var(--dark);color:white;border-radius:28px;padding:34px;min-height:400px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
+    .quote-mark{font-size:76px;line-height:.7;color:var(--orange);font-family:Georgia,serif}.quote{font-size:30px;line-height:1.15;letter-spacing:-.035em;font-weight:760}.person{display:flex;align-items:center;gap:13px;color:#bdbdbd;font-size:13px}.person .avatar{border-color:#111;width:50px;height:50px}
+    .about-copy p{font-size:18px;color:#4d4a45}.about-copy strong{color:var(--ink)}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}.fact{padding:18px 0;border-top:1px solid var(--line)}.fact b{display:block;font-size:15px}.fact span{color:var(--muted);font-size:13px}
+    .method{background:var(--dark);color:white}.method .section-label,.method .section-intro{color:#aaa}.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}.method-card{border:1px solid rgba(255,255,255,.1);padding:24px;border-radius:20px;background:#181818}.method-card .n{color:var(--orange);font-weight:850;font-size:12px}.method-card h3{font-size:22px;margin:32px 0 8px}.method-card p{color:#9c9c9c;margin:0;font-size:14px}
+    .contact{padding:100px 0 110px}.contact-card{background:var(--orange);border-radius:30px;padding:48px;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end}.contact-card h2{max-width:760px}.contact-card p{font-size:19px;max-width:650px}.contact-actions{display:flex;flex-direction:column;gap:10px;align-items:stretch}.contact-actions .btn{background:#111;color:#fff;border-color:#111}.contact-actions .btn.alt{background:transparent;color:#111;border-color:rgba(0,0,0,.35)}
+    footer{padding:26px 0 38px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}.reveal.show{opacity:1;transform:none}
+    @media (max-width:900px){.nav-links a:not(.nav-cta){display:none}.hero{padding-top:58px}.hero-grid,.section-head,.about-grid,.contact-card{grid-template-columns:1fr}.profile-card{min-height:auto}.service-grid{grid-template-columns:1fr}.case{grid-template-columns:1fr;gap:10px}.method-grid{grid-template-columns:1fr 1fr}.contact-actions{align-items:flex-start}.section-head{gap:24px}}
+    @media (max-width:560px){.wrap{width:min(100% - 26px,1180px)}.nav-inner{height:68px}h1{font-size:54px}.hero{padding:48px 0 56px}.profile-card{padding:26px;border-radius:23px}.profile-name{font-size:32px}.method-grid,.facts{grid-template-columns:1fr}.contact-card{padding:30px 24px}.btn{width:100%}.hero-actions{display:grid}.service,.case{padding:22px}.quote-card{padding:27px;min-height:340px}.quote{font-size:26px}}
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Uniqm home"><span class="brand-dot"></span>uniqm</a>
+      <div class="nav-links">
+        <a href="#expertise">Expertise</a>
+        <a href="#ervaring">Ervaring</a>
+        <a href="#over">Over Uniqm</a>
+        <a href="#werkwijze">Werkwijze</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Projectleiding & advies</div>
+          <h1>Complexe opgaven.<br><span class="orange">Heldere regie.</span></h1>
+          <p class="lead">Uniqm ondersteunt organisaties bij projectleiding, stakeholdermanagement en verandering. Met structuur, heldere communicatie en aandacht voor de mensen die het moeten waarmaken.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Bespreek een opdracht <span>↗</span></a>
+            <a class="btn btn-secondary" href="#ervaring">Bekijk ervaring</a>
+          </div>
+          <div class="trust-line">
+            <div class="avatar" aria-hidden="true">
+              <img src="https://media.licdn.com/dms/image/v2/D4E03AQFn-jjG0oBXyg/profile-displayphoto-crop_800_800/B4EZ.JobRgJMAI-/0/1784720504729?e=1796256000&amp;v=beta&amp;t=6NdYgqQvX1nkJZHbhcanP-IUAxMJGbSELjYL8CwCfJM" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'" />
+              <div class="avatar-fallback" style="display:none">TM</div>
+            </div>
+            <span>Tahsin Mete · Projectleider & adviseur · Groningen</span>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Tahsin Mete en expertise">
+          <div class="profile-top">
+            <div class="profile-kicker">Uniqm · Projectleiding & advies</div>
+            <h2 class="profile-name">Tahsin Mete</h2>
+            <p class="profile-role">Projectleider & adviseur</p>
+            <div class="profile-rule"></div>
+
+            <div class="profile-list">
+              <div class="profile-item">
+                <div class="profile-num">01</div>
+                <div><b>Projectleiding</b><span>Structuur, voortgang, samenwerking en uitvoering.</span></div>
+              </div>
+              <div class="profile-item">
+                <div class="profile-num">02</div>
+                <div><b>Stakeholdermanagement</b><span>Belangen verbinden en helder schakelen tussen mensen en niveaus.</span></div>
+              </div>
+              <div class="profile-item">
+                <div class="profile-num">03</div>
+                <div><b>Communicatie & verandering</b><span>Complexe opgaven vertalen naar een aanpak die werkt in de praktijk.</span></div>
+              </div>
+              <div class="profile-item">
+                <div class="profile-num">04</div>
+                <div><b>Ervaring in complexe omgevingen</b><span>Overheid, consultancy, energietransitie en teamcoördinatie.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-bottom">
+            <div class="profile-location">Groningen · hybride inzetbaar</div>
+            <div class="profile-status"><i></i> beschikbaar voor opdrachten</div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="expertise">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-label">Waar Uniqm bij helpt</div>
+          <div><h2>Van veel belangen naar één werkbare aanpak.</h2><p class="section-intro">Overzicht, duidelijke keuzes en een aanpak die uitvoerbaar is. Zodat mensen weten wat nodig is en projecten daadwerkelijk verder komen.</p></div>
+        </div>
+        <div class="service-grid">
+          <article class="service reveal"><div><div class="service-num">01</div><h3>Projectleiding</h3><p>Projecten structureren, prioriteiten bewaken, stakeholders organiseren en zorgen dat besluiten ook echt worden uitgevoerd.</p></div><div class="arrow">↗</div></article>
+          <article class="service reveal"><div><div class="service-num">02</div><h3>Advies & stakeholdermanagement</h3><p>Verschillende perspectieven snel doorgronden, belangen verbinden en komen tot heldere keuzes voor management, bestuur en uitvoering.</p></div><div class="arrow">↗</div></article>
+          <article class="service reveal"><div><div class="service-num">03</div><h3>Communicatie & verandering</h3><p>Complexe onderwerpen begrijpelijk maken en zorgen dat een verandering niet alleen wordt bedacht, maar ook landt bij de mensen die ermee werken.</p></div><div class="arrow">↗</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ervaring" class="work-section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-label">Ervaring</div>
+          <div><h2>Ervaring in overheid, consultancy en complexe organisaties.</h2><p class="section-intro">Uniqm bouwt voort op ervaring waar inhoud, mensen en uitvoering steeds samenkomen.</p></div>
+        </div>
+        <div class="cases">
+          <article class="case reveal"><div><small>Gemeente Oldambt</small><h3>Oldambt Verwarmt</h3></div><p>Projectleiding rondom isolatie, energiebesparing en duurzaam verwarmen. Van projectplan en stakeholderafstemming tot verbinding met andere gemeentelijke programma’s.</p><span class="tag">Energietransitie</span></article>
+          <article class="case reveal"><div><small>Axians</small><h3>Smart Finance Consultancy</h3></div><p>Klantvraagstukken analyseren, management en gebruikers verbinden en complexe informatie vertalen naar oplossingen die in de praktijk werken.</p><span class="tag">Consultancy</span></article>
+          <article class="case reveal"><div><small>Vinci Energies · Parijs</small><h3>Internationale samenwerking</h3></div><p>Bijdrage aan een internationaal initiatief dat medewerkers uit verschillende landen, organisatieonderdelen, functies en culturen dichter bij elkaar bracht.</p><span class="tag">International</span></article>
+          <article class="case reveal"><div><small>GGD Drenthe</small><h3>Teamcoördinatie</h3></div><p>Coördinatie en aansturing van teams in een snel veranderende omgeving, met nadruk op duidelijkheid, samenwerking en voortgang onder druk.</p><span class="tag">Leiderschap</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="over">
+      <div class="wrap about-grid">
+        <div class="quote-card reveal">
+          <div class="quote-mark">“</div>
+          <div class="quote">Ik geloof dat een goed project niet begint bij nóg meer overleg, maar bij helderheid over wat nodig is en wie je daarvoor bij elkaar moet brengen.</div>
+          <div class="person">
+            <div class="avatar"><img src="https://media.licdn.com/dms/image/v2/D4E03AQFn-jjG0oBXyg/profile-displayphoto-crop_800_800/B4EZ.JobRgJMAI-/0/1784720504729?e=1796256000&amp;v=beta&amp;t=6NdYgqQvX1nkJZHbhcanP-IUAxMJGbSELjYL8CwCfJM" alt="Tahsin Mete" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"/><div class="avatar-fallback" style="display:none">TM</div></div>
+            <div><strong style="color:white">Tahsin Mete</strong><br>Projectleider & adviseur</div>
+          </div>
+        </div>
+        <div class="about-copy reveal">
+          <div class="section-label">Over Uniqm</div>
+          <h2 style="margin-top:16px">Persoonlijk in contact. Zakelijk op resultaat.</h2>
+          <p>Uniqm is het advies- en projectbureau van <strong>Tahsin Mete</strong>. De aanpak is praktisch. Eerst begrijpen wat er werkelijk speelt, vervolgens structuur aanbrengen en daarna de juiste mensen in beweging krijgen.</p>
+          <p>De ervaring loopt van gemeentelijke projecten en politiek-bestuurlijke omgevingen tot consultancy, teamcoördinatie en internationale samenwerking. Daardoor kan Uniqm makkelijk schakelen tussen strategie en uitvoering.</p>
+          <div class="facts">
+            <div class="fact"><b>Standplaats</b><span>Groningen · hybride inzetbaar</span></div>
+            <div class="fact"><b>Werkvorm</b><span>Interim · project · advies</span></div>
+            <div class="fact"><b>Focus</b><span>Regie · stakeholders · resultaat</span></div>
+            <div class="fact"><b>Certificering</b><span>Professional Scrum Master I</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="werkwijze" class="method">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-label">Werkwijze</div>
+          <div><h2>Geen ingewikkelde methode. Wel een duidelijke lijn.</h2><p class="section-intro">Uniqm brengt tempo zonder de context uit het oog te verliezen.</p></div>
+        </div>
+        <div class="method-grid">
+          <article class="method-card reveal"><div class="n">01</div><h3>Begrijpen</h3><p>Wat is de echte vraag, wat staat er op het spel en waar zit de blokkade?</p></article>
+          <article class="method-card reveal"><div class="n">02</div><h3>Ordenen</h3><p>Doelen, rollen, belangen, planning en risico’s overzichtelijk maken.</p></article>
+          <article class="method-card reveal"><div class="n">03</div><h3>Verbinden</h3><p>De juiste mensen aan tafel en zorgen dat perspectieven bij elkaar komen.</p></article>
+          <article class="method-card reveal"><div class="n">04</div><h3>Realiseren</h3><p>Afspraken vertalen naar actie, voortgang zichtbaar houden en bijsturen waar nodig.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <div class="contact-card reveal">
+          <div><div class="section-label" style="color:rgba(0,0,0,.58)">Een opdracht bespreken</div><h2 style="margin-top:14px">Een project dat structuur, verbinding of extra regie nodig heeft?</h2><p>Stuur een bericht. Dan kijken we snel of Uniqm past bij de opgave.</p></div>
+          <div class="contact-actions">
+            <a class="btn" href="mailto:tahsincanmete@gmail.com">Mail Tahsin ↗</a>
+            <a class="btn alt" href="https://www.linkedin.com/in/tahsin-mete/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap foot"><span>© <span id="year"></span> Uniqm</span><span>Projectleiding & advies · Groningen</span></div></footer>
+
+  <script>
+    const nav=document.getElementById('nav');
+    addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>12));
+    const observer=new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}}),{threshold:.13});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
